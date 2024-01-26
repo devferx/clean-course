@@ -36,4 +36,17 @@
     console.log('Crear actor', birthdate);
     return true;
   }
+
+  // clase 2 - Detalles adicionales sobre funciones
+  const getPayAmount = ({
+    isDead = false,
+    isSeparated = true,
+    isRetired = false,
+  }) => {
+    if (isDead) return 1500;
+    if (isSeparated) return 2500;
+    if (isRetired) return 3000;
+    // return isRetired ? 3000 : 4000;
+    return 4000;
+  };
 })();
