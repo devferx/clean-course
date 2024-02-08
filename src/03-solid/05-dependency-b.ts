@@ -1,6 +1,6 @@
-import { JsonDataBaseService } from './05-dependency-c';
+import { PostProvider } from './05-dependency-c';
 
-interface Post {
+export interface Post {
   body: string;
   id: number;
   title: string;
@@ -10,15 +10,10 @@ interface Post {
 export class PostService {
   private posts: Post[] = [];
 
-  constructor(private postProvider: JsonDataBaseService) {}
+  constructor(private postProvider: PostProvider) {}
 
   async getPosts() {
-    // const jsonDB = new LocalDataBaseService();
-    // const jsonDB = new JsonDataBaseService();
-    // this.posts = await jsonDB.getPosts();
-
     this.posts = await this.postProvider.getPosts();
-
     return this.posts;
   }
 }
